@@ -545,12 +545,12 @@ function renderSpendChart(buckets){
           borderRadius:4,
           maxBarThickness:46,
           yAxisID:'y',
-          order:2,
+          order:1,
           datalabels:{
             anchor:'end', align:'top', offset:4,
             color:COLOR.navy, font:{ size:10, weight:'600' },
             formatter:v => v > 0 ? fmtCurrencyShort(v) : '',
-            display: ctx => !isDense && ctx.dataset.data[ctx.dataIndex] > 0
+            display: ctx => (!isDense && ctx.dataset.data[ctx.dataIndex] > 0) ? 'auto' : false
           }
         },
         {
@@ -568,14 +568,14 @@ function renderSpendChart(buckets){
           tension:0.3,
           spanGaps:false,
           yAxisID:'y1',
-          order:1,
+          order:2,
           datalabels:{
-            anchor:'end', align:'top', offset:8,
+            anchor:'end', align:'top', offset:10,
             backgroundColor:COLOR.navyDark, borderRadius:4, color:COLOR.white,
             padding:{top:3,bottom:3,left:6,right:6},
             font:{ size:9.5, weight:'600' },
             formatter:v => v !== null ? '$' + v.toFixed(2) : '',
-            display: ctx => !isDense && ctx.dataset.data[ctx.dataIndex] !== null
+            display: ctx => (!isDense && ctx.dataset.data[ctx.dataIndex] !== null) ? 'auto' : false
           }
         }
       ]
@@ -640,12 +640,12 @@ function renderImpressionsChart(buckets){
           borderRadius:4,
           maxBarThickness:34,
           yAxisID:'y',
-          order:2,
+          order:1,
           datalabels:{
             anchor:'end', align:'top', offset:4,
             color:COLOR.navy, font:{ size:9.5, weight:'600' },
             formatter:v => v > 0 ? fmtNumber(v) : '',
-            display: ctx => !isDense && ctx.dataset.data[ctx.dataIndex] > 0
+            display: ctx => (!isDense && ctx.dataset.data[ctx.dataIndex] > 0) ? 'auto' : false
           }
         },
         {
@@ -663,14 +663,14 @@ function renderImpressionsChart(buckets){
           tension:0.3,
           spanGaps:false,
           yAxisID:'y1',
-          order:1,
+          order:2,
           datalabels:{
-            anchor:'end', align:'top', offset:8,
+            anchor:'end', align:'top', offset:10,
             backgroundColor:COLOR.navyDark, borderRadius:4, color:COLOR.white,
             padding:{top:3,bottom:3,left:6,right:6},
             font:{ size:9, weight:'600' },
             formatter:v => v !== null ? v.toFixed(2) + '%' : '',
-            display: ctx => !isDense && ctx.dataset.data[ctx.dataIndex] !== null
+            display: ctx => (!isDense && ctx.dataset.data[ctx.dataIndex] !== null) ? 'auto' : false
           }
         }
       ]
@@ -735,7 +735,7 @@ function renderClicksChart(buckets){
           anchor:'end', align:'top', offset:4,
           color:COLOR.navy, font:{ size:9.5, weight:'600' },
           formatter:v => v > 0 ? fmtNumber(v) : '',
-          display: ctx => !isDense && ctx.dataset.data[ctx.dataIndex] > 0
+          display: ctx => (!isDense && ctx.dataset.data[ctx.dataIndex] > 0) ? 'auto' : false
         }
       }]
     },
